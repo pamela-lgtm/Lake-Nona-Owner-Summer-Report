@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lake Nona Report — Verandah Properties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@500;600;700;800&family=Jost:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#008C82;--teal-deep:#06605A;--gold:#D4AF50;--gold-soft:#E7D2A0;
+    --charcoal:#1A1A1A;--ink:#2A2A2A;--paper:#FBFAF6;--paper-2:#F3F0E7;
+    --line:#E2DDCF;--muted:#6E6A60;--pos:#2F7D5B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+
+  .masthead{background:radial-gradient(120% 130% at 85% -10%, rgba(212,175,80,.20), transparent 55%),linear-gradient(135deg, var(--charcoal) 0%, #11302E 58%, var(--teal-deep) 130%);color:#fff;padding:60px 0 52px;position:relative;overflow:hidden;}
+  .masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--teal) 0%,var(--gold) 55%,var(--gold-soft) 100%);}
+  .brandline{font-family:'Jost',sans-serif;letter-spacing:.42em;text-transform:uppercase;font-size:11px;font-weight:400;color:var(--gold-soft);margin-bottom:24px;}
+  .kicker{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .kicker .eyebrow{font-family:'Jost',sans-serif;letter-spacing:.30em;text-transform:uppercase;font-size:11.5px;color:var(--gold);}
+  .kicker .date{font-family:'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:#9FB7B3;border-left:1px solid #3a5d59;padding-left:14px;}
+  h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(36px,6vw,62px);line-height:1.02;letter-spacing:.004em;}
+  h1 em{font-style:italic;color:var(--gold-soft);font-weight:600;}
+  .sub-hd{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:500;color:#E8E5DC;margin-top:16px;font-style:italic;max-width:740px;}
+
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;}
+  .sec-num{font-family:'Jost',sans-serif;font-weight:500;font-size:13px;color:var(--teal);letter-spacing:.18em;border:1px solid var(--teal);border-radius:2px;padding:3px 9px;white-space:nowrap;}
+  h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(24px,3.6vw,34px);color:var(--charcoal);line-height:1.1;}
+  h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;color:var(--teal-deep);margin:24px 0 8px;}
+  p{margin-bottom:14px;}
+  p.lead{font-size:18px;color:var(--ink);}
+  strong{font-weight:600;color:var(--charcoal);}
+  .pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;line-height:1.32;color:var(--teal-deep);border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;}
+
+  /* by the numbers band */
+  .numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:8px;}
+  .numbers .cell{background:#fff;padding:20px 18px;text-align:center;}
+  .numbers .big{font-family:'Playfair Display',serif;font-weight:700;font-size:30px;color:var(--teal-deep);line-height:1;}
+  .numbers .lab{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--muted);margin-top:8px;line-height:1.3;}
+
+  /* origin timeline */
+  .timeline{margin-top:10px;border-left:2px solid var(--gold-soft);padding-left:26px;}
+  .tl-item{position:relative;padding-bottom:22px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:"";position:absolute;left:-33px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--paper);}
+  .tl-item .yr{font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.08em;font-size:12px;color:var(--teal);text-transform:uppercase;}
+  .tl-item .tx{font-size:15px;margin-top:3px;}
+  .tl-item .tx b{font-family:'DM Sans',sans-serif;}
+
+  /* fact cards */
+  .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;}
+  .fact{background:#fff;border:1px solid var(--line);border-radius:9px;padding:20px 20px;}
+  .fact .ico{font-size:18px;color:var(--gold);}
+  .fact h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--charcoal);margin:8px 0 4px;line-height:1.15;}
+  .fact p{font-size:13.5px;color:var(--ink);margin-bottom:0;}
+
+  /* stat callouts */
+  .stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 4px;}
+  .stat{background:linear-gradient(160deg,#0c4f49,var(--teal-deep));color:#EAF6F4;border-radius:10px;padding:24px 22px;}
+  .stat .n{font-family:'Playfair Display',serif;font-weight:700;font-size:34px;color:#fff;line-height:1;}
+  .stat .n small{font-size:15px;color:var(--gold-soft);font-weight:400;font-family:'DM Sans',sans-serif;}
+  .stat .d{font-size:13.5px;margin-top:8px;color:#DCEEEB;}
+
+  .note{background:var(--paper-2);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:18px 24px;margin:22px 0;}
+  .note .nh{font-family:'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--teal-deep);margin-bottom:7px;}
+  .note p:last-child{margin-bottom:0;}
+
+  /* opening-now highlights */
+  .open-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 18px;}
+  .open{background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:0 0 8px 8px;padding:18px 18px;}
+  .open .when{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--teal);font-weight:600;}
+  .open b{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--charcoal);display:block;margin:4px 0 3px;}
+  .open span{font-size:13px;color:var(--muted);}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .chip{font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:.02em;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink);}
+
+  /* weslyn feature */
+  .feature{background:linear-gradient(150deg,#0d3d39,var(--teal-deep));color:#EAF6F4;border-radius:12px;padding:34px 34px;margin-top:8px;}
+  .feature .tag{font-family:'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:var(--gold-soft);}
+  .feature h3{color:#fff;margin:6px 0 12px;font-size:28px;}
+  .feature p{color:#E7F2F0;}
+  .feature .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 26px;margin-top:16px;}
+  .feature .wgrid div{position:relative;padding-left:22px;font-size:14.5px;}
+  .feature .wgrid div::before{content:"✦";position:absolute;left:0;color:var(--gold);}
+
+  .closing{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:32px 34px;margin-top:8px;}
+  .closing .q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:25px;color:var(--teal-deep);line-height:1.34;margin-bottom:12px;}
+  .closing p{margin-bottom:0;font-size:15.5px;}
+
+  footer{background:var(--charcoal);color:#CFCBC0;padding:44px 0 36px;}
+  footer .f-brand{font-family:'Playfair Display',serif;color:#fff;font-size:24px;font-weight:600;}
+  footer .f-brand span{color:var(--gold);}
+  footer .f-tag{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-soft);font-size:18px;margin-top:4px;}
+  footer .f-prep{margin-top:18px;font-size:14px;color:#E4E0D6;}
+  footer .f-prep b{color:#fff;font-weight:600;}
+  footer .f-meta{margin-top:14px;font-size:13px;color:#9C9789;}
+  .disclaimer{font-size:11.5px;color:#807B70;margin-top:22px;border-top:1px solid #333;padding-top:16px;line-height:1.6;}
+  a{color:var(--teal);}
+
+  @media (max-width:780px){
+    .numbers{grid-template-columns:repeat(2,1fr);}
+    .fact-grid,.stat3,.open-grid,.feature .wgrid{grid-template-columns:1fr;}
+  }
+  @media print{
+    body{background:#fff;font-size:12px;}
+    .masthead{padding:38px 0 30px;}
+    section{padding:26px 0;}
+    .stat,.fact,.open,.feature,.closing,.note{break-inside:avoid;}
+    a{color:var(--ink);text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">Verandah Properties&nbsp;&nbsp;·&nbsp;&nbsp;Curating Lake Nona's Finest Rental Portfolio</div>
+    <div class="kicker">
+      <span class="eyebrow">The Lake Nona Report · For Our Owners</span>
+      <span class="date">Summer 2026</span>
+    </div>
+    <h1>Lake Nona Is <em>Just Getting Started</em></h1>
+    <div class="sub-hd">A look at the history, the momentum, and everything still coming to the region your investment calls home — and why that's such good news for you.</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- numbers -->
+  <section style="padding-top:42px;">
+    <div class="numbers">
+      <div class="cell"><div class="big">17 sq mi</div><div class="lab">One master-planned vision</div></div>
+      <div class="cell"><div class="big">650 acres</div><div class="lab">Of Medical City</div></div>
+      <div class="cell"><div class="big">405,000 sf</div><div class="lab">Of new retail opening now</div></div>
+      <div class="cell"><div class="big">4,700+</div><div class="lab">Airline jobs minutes away</div></div>
+    </div>
+  </section>
+
+  <!-- 01 origin -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01 · The Origin Story</span></div>
+    <h2>It started with a bet on an empty field</h2>
+    <p class="lead">Lake Nona didn't grow by accident — it was designed, deliberately, as a city of the future. And the spark that lit it was a single, audacious act of generosity.</p>
+    <div class="timeline">
+      <div class="tl-item"><div class="yr">2005</div><div class="tx">Tavistock, the developer of Lake Nona, donated <b>$12.5 million and 50 acres</b> to UCF to launch a brand-new medical school — and the very beginnings of Medical City. It then challenged the community to match it.</div></div>
+      <div class="tl-item"><div class="yr">2006</div><div class="tx">The community and the State of Florida answered. Between gifts, matching funds, and land value, UCF ultimately gathered <b>well over $100 million</b>, and the College of Medicine won approval.</div></div>
+      <div class="tl-item"><div class="yr">2009</div><div class="tx">The first medical students arrived. Tavistock also donated the land for the neighboring research institute — seeding the entire cluster.</div></div>
+      <div class="tl-item"><div class="yr">Today</div><div class="tx">That one donation grew into a <b>650-acre Medical City</b> anchored by UCF's College of Medicine, Nemours Children's Hospital, the Orlando VA Medical Center, the UF College of Pharmacy, and a world-class research institute.</div></div>
+    </div>
+    <p class="pull">Your investment doesn't just sit near Lake Nona. It sits inside one of the most intentional communities ever built in Florida.</p>
+  </section>
+
+  <!-- 02 fun facts -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02 · Did You Know?</span></div>
+    <h2>A few things that make this place genuinely one of a kind</h2>
+    <div class="fact-grid">
+      <div class="fact"><div class="ico">✦</div><h4>One owner, 17+ square miles</h4><p>A single developer master-planning that much of one city has never been done anywhere else in Florida.</p></div>
+      <div class="fact"><div class="ico">✦</div><h4>Florida's first gigabit "smart city"</h4><p>Built from the ground up around technology, mobility, and wellbeing.</p></div>
+      <div class="fact"><div class="ico">✦</div><h4>The world's largest tennis facility</h4><p>The USTA National Campus and its 100 courts call Lake Nona home.</p></div>
+      <div class="fact"><div class="ico">✦</div><h4>Self-driving shuttles</h4><p>The region pioneered Beep, its first fleet of autonomous neighborhood shuttles.</p></div>
+      <div class="fact"><div class="ico">✦</div><h4>A park built from shipping containers</h4><p>Boxi Park turned stacked steel containers into a beloved food-and-music destination.</p></div>
+      <div class="fact"><div class="ico">✦</div><h4>They're studying space medicine</h4><p>UCF's College of Medicine is expanding research aimed at keeping space travelers healthy.</p></div>
+    </div>
+  </section>
+
+  <!-- 03 demand engine -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03 · The Demand Engine</span></div>
+    <h2>Why the renter pool here keeps getting stronger</h2>
+    <p class="lead">A great investment needs great tenants lined up to fill it. Lake Nona's are arriving by the planeload — quite literally — thanks to a major shift at the airport just minutes from your door.</p>
+    <div class="stat3">
+      <div class="stat"><div class="n">~40%</div><div class="d">The capacity Spirit pulled from Orlando in 2026 as it restructured — opening a wide gap at MCO.</div></div>
+      <div class="stat"><div class="n">200+<small>/day</small></div><div class="d">Daily departures Southwest projects from MCO by 2027 as it moves in to fill that gap.</div></div>
+      <div class="stat"><div class="n">4,700+</div><div class="d">People Southwest already employs at MCO — flight crews, maintenance, training and more.</div></div>
+    </div>
+    <p>When a major employer minutes from your property is hiring and relocating people at this pace, that is your tenant pool — qualified, stable, transferring professionals who need a quality place to live.</p>
+    <div class="note">
+      <div class="nh">From our own desk</div>
+      <p>We recently placed a highly qualified resident who was <strong>relocating with Southwest</strong> into one of the investments we manage — a real, live example of exactly this trend turning into a signed lease. This isn't a forecast; it's already happening.</p>
+    </div>
+  </section>
+
+  <!-- 04 retail -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04 · The Amenity Boom</span></div>
+    <h2>Every new opening makes your investment more desirable</h2>
+    <p>Lake Nona West — a 405,000-square-foot, Target-anchored lifestyle center, one of the largest retail projects built in Florida in years — is opening through this summer, complete with large-scale murals and public art. The lineup is a genuine draw:</p>
+    <div class="chips">
+      <span class="chip">Target</span><span class="chip">Nordstrom Rack</span><span class="chip">Sephora</span><span class="chip">Barnes &amp; Noble</span><span class="chip">Dick's Sporting Goods</span><span class="chip">Homesense</span><span class="chip">Total Wine &amp; More</span><span class="chip">Golf Galaxy</span><span class="chip">Drybar</span><span class="chip">Just Salad</span><span class="chip">Kilwins</span><span class="chip">Cañonita</span>
+    </div>
+    <h3>Opening practically as you read this</h3>
+    <div class="open-grid">
+      <div class="open"><div class="when">June 10, 2026</div><b>Barnes &amp; Noble</b><span>A 16,000-sq-ft store opened today at Lake Nona West, next to Total Wine.</span></div>
+      <div class="open"><div class="when">June 12, 2026</div><b>Sprouts Farmers Market</b><span>Anchoring a new retail phase in Eagle Creek along Narcoossee.</span></div>
+      <div class="open"><div class="when">Underway</div><b>Nemours Children's</b><span>A $300 million expansion of its Lake Nona hospital campus.</span></div>
+    </div>
+    <p>And the employers keep coming — global names in aviation services, energy, and pilot training have all chosen Lake Nona, each one adding high-wage jobs to the local economy. <strong>More amenities and more jobs mean a more livable area — which means your investment leases faster and keeps great residents longer.</strong></p>
+  </section>
+
+  <!-- 05 residential pipeline -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05 · Still Coming</span></div>
+    <h2>The region isn't slowing down</h2>
+    <p>The growth pipeline runs deep. A 377-unit Class-A residential community (Ellison Nona) is rising now, and in March 2026 Orlando approved a roughly <strong>380-acre new development district</strong> (Dowden Central) that clears the way for still more housing, retail, and office on the southeast side of the master plan.</p>
+    <div class="note">
+      <div class="nh">Our honest take, owner to owner</div>
+      <p>All this new construction is a vote of confidence in the area — but it also means your investment competes with shiny new inventory. That's precisely why <strong>disciplined pricing and a show-ready presentation matter so much</strong>. A well-priced, pristine property still wins the best resident quickly, even in a busy market. Positioning yours to do exactly that is our job.</p>
+    </div>
+  </section>
+
+  <!-- 06 weslyn park -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06 · The Next Ring</span></div>
+    <h2>Where the Lake Nona story expands next: Weslyn Park</h2>
+    <p class="lead">If you want a glimpse of what's coming, look just south. Weslyn Park is the first completed village of <strong>Sunbridge</strong> — a 24,000-acre master plan from the very same developer behind Lake Nona.</p>
+    <div class="feature">
+      <div class="tag">Weslyn Park at Sunbridge · St. Cloud</div>
+      <h3>"The next Lake Nona," about 15–20 minutes south</h3>
+      <p>Built along the Narcoossee / Cyrils Drive corridor, it's a conservation-minded "naturehood" of 575+ homes woven through 60+ acres of parks, ponds, and preserve — with new-home pricing that typically runs well below comparable construction inside Lake Nona's 32827.</p>
+      <div class="wgrid">
+        <div>Rooftop solar &amp; fiber in every home</div>
+        <div>EV-charging ready, structural warranty</div>
+        <div>On-site Voyager K-8 environmental STEM school</div>
+        <div>2027: "The Watershed" amenity center — resort pool, restaurant &amp; bar, fitness</div>
+        <div>Builders incl. David Weekley, Toll Brothers, Craft, Ashton Woods</div>
+        <div>Miles of connected trails &amp; preserved landscape</div>
+      </div>
+    </div>
+    <p style="margin-top:18px;">Watching where Tavistock builds next is one of the best ways to understand where Central Florida's growth — and demand — is heading. And it's all happening right next door to where you already own.</p>
+  </section>
+
+  <!-- closing -->
+  <section>
+    <div class="closing">
+      <div class="q">You don't just own a property in Lake Nona. You own a piece of one of the most intentional, fastest-growing communities in the country.</div>
+      <p>Our job is to make sure your investment is positioned to capture every bit of that momentum — priced right, presented beautifully, and matched with the kind of resident this region keeps attracting. As always, if you'd ever like to talk through what any of this means for your specific investment, we're here.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Verandah <span>Properties</span></div>
+    <div class="f-tag">The marriage, not the sprint.</div>
+    <div class="f-prep">With appreciation,<br><b>Pamela Syvertson</b> · Owner &amp; Broker, Verandah Properties, LLC</div>
+    <div class="f-meta">White-glove property management for the Lake Nona &amp; Orlando corridor &nbsp;·&nbsp; The Lake Nona Report, Summer 2026</div>
+    <div class="disclaimer">
+      Shared for our owners' enjoyment and general interest. Figures and timelines are drawn from public reporting and developer announcements current as of June 2026 and are subject to change; forward-looking items (such as projected 2027 airline departures and future amenity openings) are estimates, and grand-opening dates may shift. Market and pricing references reflect late-2025 / 2026 third-party data. Nothing here is investment, legal, or tax advice.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
